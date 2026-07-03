@@ -87,7 +87,16 @@ bundle exec jekyll serve --source docs
 
 GitHub 공식 테마(`theme:`)는 쓰지 않고, 직접 만든 다크 터미널 스타일을 씁니다. 관련 파일:
 
-- `docs/_layouts/page.html` — 전체 레이아웃 (터미널 타이틀바 + 왼쪽 사이드바 + 본문). `jekyll-default-layout` 플러그인이 GitHub Pages에서 기본 활성화돼 있어서, 문서 파일에 `layout:` 프런트매터를 따로 안 써도 이 레이아웃이 자동 적용됩니다. 만약 어떤 페이지가 레이아웃 없이 렌더링되면 그 파일 프런트매터에 `layout: page`를 명시하세요.
+- `docs/_layouts/page.html` — 전체 레이아웃 (터미널 타이틀바 + 왼쪽 사이드바 + 본문). `docs/_config.yml`의 `plugins:`에 넣어둔 `jekyll-default-layout` 덕분에, 문서 파일에 `layout:` 프런트매터를 따로 안 써도 이 레이아웃이 자동 적용됩니다. 만약 어떤 페이지가 레이아웃 없이 렌더링되면 그 파일 프런트매터에 `layout: page`를 명시하세요.
 - `docs/assets/css/style.css` — 색상/타이포그래피/코드 하이라이팅(Rouge) 전부 이 파일에 있습니다. `:root`의 CSS 변수(`--bg`, `--accent` 등)만 바꿔도 톤이 크게 바뀝니다.
 - `docs/_data/nav.yml` — 사이드바에 표시되는 카테고리 순서/이름. 카테고리를 추가하면 여기도 한 줄 추가해야 사이드바에 뜹니다 (카테고리 안의 개별 문서 목록은 `site.pages`에서 자동으로 뽑아오므로 문서 추가 시 여기는 안 건드려도 됨).
 - `docs/_config.yml`의 `baseurl: "/dev-knowledge"` — 프로젝트 페이지(`jinieun.github.io/dev-knowledge/`)라서 반드시 필요한 값입니다. 지우면 CSS/사이드바 링크가 전부 깨집니다.
+
+## 빌드 파이프라인 — GitHub Actions
+
+GitHub Pages의 기본("Deploy from a branch") 빌드는 아주 오래된 `github-pages` gem(v232, jekyll-sass-converter 1.5.2)에 고정돼 있어서 `docs/` 같은 하위 폴더 소스에서 sass 변환 중 `dir_chdir` 크래시가 나는 알려진 버그가 있습니다. 그래서 이 레포는 **GitHub Actions로 직접 빌드**합니다.
+
+- `Gemfile` (레포 루트) — `github-pages` 메타 gem 대신 최신 `jekyll` (`~> 4.3`)을 직접 지정. GFM/링크/SEO 등 필요한 플러그인도 여기 명시.
+- `.github/workflows/pages.yml` — push할 때마다 Ruby 3.3 + 위 Gemfile로 `docs/`를 빌드해서 Pages에 배포.
+- **필수**: GitHub 저장소 Settings → Pages → Build and deployment → Source를 **"GitHub Actions"**로 설정해야 이 워크플로가 실제로 배포까지 합니다 ("Deploy from a branch"로 두면 여전히 레거시 파이프라인이 돌면서 위 버그가 재발합니다).
+- 새 플러그인이 필요하면 `Gemfile`과 `docs/_config.yml`의 `plugins:` 양쪽에 추가해야 합니다.
