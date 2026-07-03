@@ -1,4 +1,6 @@
-# Network
+---
+title: Network
+---
 
 네트워크 및 운영체제 등 CS 기초 지식을 정리합니다.
 

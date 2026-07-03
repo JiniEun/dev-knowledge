@@ -1,4 +1,6 @@
-# Database
+---
+title: Database
+---
 
 DB 설계, 쿼리 최적화, 트랜잭션 등을 정리합니다.
 

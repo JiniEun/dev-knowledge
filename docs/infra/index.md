@@ -1,4 +1,6 @@
-# Infra
+---
+title: Infra
+---
 
 인프라, 배포, CI/CD 관련 내용을 정리합니다.
 

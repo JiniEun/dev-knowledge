@@ -1,4 +1,6 @@
-# Troubleshooting
+---
+title: Troubleshooting
+---
 
 실무 또는 프로젝트에서 겪은 문제와 해결 과정을 기록합니다.
 
