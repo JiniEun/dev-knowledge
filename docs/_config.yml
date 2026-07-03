@@ -1,2 +1,3 @@
 title: dev-knowledge Wiki
-theme: jekyll-theme-minimal
+baseurl: "/dev-knowledge"
+permalink: pretty

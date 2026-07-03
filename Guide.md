@@ -83,6 +83,11 @@ bundle exec jekyll serve --source docs
 
 설치가 번거로우면 생략하고 push 후 GitHub Pages 빌드 결과로 확인해도 무방합니다.
 
-## 테마 변경
+## 디자인 — 커스텀 터미널 테마
 
-`docs/_config.yml`의 `theme:` 값을 바꾸면 됩니다. 현재는 `jekyll-theme-minimal`. GitHub Pages가 공식 지원하는 다른 테마([jekyll-theme-cayman](https://github.com/pages-themes/cayman), [jekyll-theme-slate](https://github.com/pages-themes/slate) 등)로 자유롭게 교체 가능합니다.
+GitHub 공식 테마(`theme:`)는 쓰지 않고, 직접 만든 다크 터미널 스타일을 씁니다. 관련 파일:
+
+- `docs/_layouts/page.html` — 전체 레이아웃 (터미널 타이틀바 + 왼쪽 사이드바 + 본문). `jekyll-default-layout` 플러그인이 GitHub Pages에서 기본 활성화돼 있어서, 문서 파일에 `layout:` 프런트매터를 따로 안 써도 이 레이아웃이 자동 적용됩니다. 만약 어떤 페이지가 레이아웃 없이 렌더링되면 그 파일 프런트매터에 `layout: page`를 명시하세요.
+- `docs/assets/css/style.css` — 색상/타이포그래피/코드 하이라이팅(Rouge) 전부 이 파일에 있습니다. `:root`의 CSS 변수(`--bg`, `--accent` 등)만 바꿔도 톤이 크게 바뀝니다.
+- `docs/_data/nav.yml` — 사이드바에 표시되는 카테고리 순서/이름. 카테고리를 추가하면 여기도 한 줄 추가해야 사이드바에 뜹니다 (카테고리 안의 개별 문서 목록은 `site.pages`에서 자동으로 뽑아오므로 문서 추가 시 여기는 안 건드려도 됨).
+- `docs/_config.yml`의 `baseurl: "/dev-knowledge"` — 프로젝트 페이지(`jinieun.github.io/dev-knowledge/`)라서 반드시 필요한 값입니다. 지우면 CSS/사이드바 링크가 전부 깨집니다.
