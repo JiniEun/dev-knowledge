@@ -8,4 +8,4 @@ Spring / Spring Boot 프레임워크 관련 내용을 정리합니다.
 
 ## 문서 목록
 
-- (문서 추가 시 여기에 링크를 추가)
+- [@Controller vs @RestController](controller-vs-restcontroller.md)
