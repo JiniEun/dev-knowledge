@@ -1,3 +1,13 @@
 title: dev-knowledge Wiki
 baseurl: "/dev-knowledge"
 permalink: pretty
+
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-default-layout
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+  - jekyll-seo-tag
