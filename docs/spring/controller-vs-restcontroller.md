@@ -13,6 +13,8 @@ description: Spring MVC의 @Controller와 @RestController 차이 정리
 | 데이터 응답 | 메서드마다 `@ResponseBody` 명시 필요 | 클래스 전체에 암묵적으로 `@ResponseBody` 적용 |
 | 주 용도 | 서버 사이드 렌더링(SSR), Thymeleaf/JSP 뷰 반환 | REST API, JSON 응답 |
 
+`@RestController`는 단순히 "JSON을 응답하는 어노테이션"이 아니라, **RESTful 웹 서비스 API를 정의할 때 쓰는 어노테이션**입니다. URI는 자원을 나타내고 HTTP 메서드로 행위를 표현하는 REST 원칙을, 컨트롤러가 뷰 대신 자원의 표현(JSON 등)을 직접 응답하도록 강제함으로써 뒷받침합니다. REST 개념 자체는 [REST와 RESTful](../network/rest-restful.md) 문서에 따로 정리했습니다.
+
 ## 코드로 비교
 
 `@Controller`만 쓰면 기본적으로 반환값을 뷰 이름으로 취급합니다.
