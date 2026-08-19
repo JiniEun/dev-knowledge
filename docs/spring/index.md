@@ -2,7 +2,7 @@
 title: Spring
 ---
 
-Spring / Spring Boot 프레임워크 관련 내용을 정리합니다.
+Spring / Spring Boot 프레임워크 관련 내용을 정리한다.
 
 예: IoC/DI, AOP, 트랜잭션 관리, Spring MVC, Spring Data JPA, 시큐리티 등
 
