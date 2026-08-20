@@ -2,9 +2,9 @@
 title: Network
 ---
 
-네트워크 및 운영체제 등 CS 기초 지식을 정리한다.
+네트워크 및 운영체제 등 CS 기초 지식 정리.
 
-예: HTTP/HTTPS, TCP/IP, DNS, 프로세스/스레드, 동기·비동기, I/O 모델 등
+예시: HTTP/HTTPS, TCP/IP, DNS, 프로세스/스레드, 동기·비동기, I/O 모델 등
 
 ## 문서 목록
 

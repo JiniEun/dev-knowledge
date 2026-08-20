@@ -2,9 +2,9 @@
 title: Infra
 ---
 
-인프라, 배포, CI/CD 관련 내용을 정리한다.
+인프라, 배포, CI/CD 등 정리.
 
-예: Docker, Kubernetes, GitHub Actions, 클라우드(AWS 등), 모니터링 등
+예시: Docker, Kubernetes, 클라우드(AWS 등), 모니터링 등
 
 ## 문서 목록
 
